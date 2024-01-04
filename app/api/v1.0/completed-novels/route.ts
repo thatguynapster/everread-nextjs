@@ -5,14 +5,14 @@ import { Article } from "../../../../types";
 import { grabPage } from "../libs/grabPage";
 
 export const GET = async (req: Request, res: Response) => {
-  const url = "https://novelebook.com/";
+  const url = "https://novelebook.com/completed-novel7";
 
   try {
     const novels: Article[] = [];
     await grabPage(url).then((html) => {
       const $ = load(html);
 
-      $(".book-3d", html).each((i, item) => {
+      $(".bookhori", html).each((i, item) => {
         const title = $(item).find(".item-title").text();
         const url = $(item).find("a").attr("href") as string;
         const image = $(item).find("img").attr("src") as string;
